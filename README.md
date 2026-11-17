@@ -1,5 +1,23 @@
-# First django project
+# Проект "Технологии создания интернет-приложений"
 
-## Install
+Это учебный проект, созданный на фреймворке Django.
 
-## Run
+## Установка и запуск
+
+1. Клонируй репозиторий:
+   `git clone [ссылка_на_твой_репозиторий]`
+
+2. Создай виртуальное окружение:
+   `python -m venv venv`
+
+3. Активируй окружение:
+   - Windows: `venv\Scripts\activate`
+   - Mac/Linux: `source venv/bin/activate`
+
+4. Установи зависимости:
+   `pip install -r requirements.txt`
+
+5. Запусти сервер:
+   `python manage.py runserver`
+
+После этого открой браузер и перейди по адресу: `http://127.0.0.1:8000/`
