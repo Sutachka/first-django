@@ -15,9 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path
-from .view import hello_page
+from django.contrib import admin
+from django.urls import path, include  # Импортируй include!
 
 urlpatterns = [
-    path('', hello_page),
+    path('admin/', admin.site.urls),
+    path('', include('blog.urls')), # Это говорит Django: "все, что идет после слэша, ищи в папке blog"
 ]

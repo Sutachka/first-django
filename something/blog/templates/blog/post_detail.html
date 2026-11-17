@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Пост #{{ post_id }} — Детали{% endblock %}
+
+{% block content %}
+    <article class="post-detail">
+        <a href="{% url 'home' %}" class="back-link">&larr; Вернуться ко всем записям</a>
+        <h1>Запись в блоге № {{ post_id }}</h1>
+        <p class="post-meta">Опубликовано: Ноябрь 2026 | Автор: Настёна</p>
+        <div class="post-body">
+            <p>Это подробный просмотр статьи с идентификатором <strong>{{ post_id }}</strong>.</p>
+            <p>В рамках Практики 2 мы передали динамический параметр <code>post_id</code> из URL через функцию-обработчик <code>views.post_detail</code> прямо в этот шаблон!</p>
+            <p>В следующей (третьей) практике здесь уже будет подтягиваться реальный текст из базы данных через модели.</p>
+        </div>
+    </article>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Главная — Космический блог{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <h1>Добро пожаловать в блог!</h1>
+        <p>Здесь собраны заметки о графике, космосе и разработке интернет-приложений.</p>
+    </section>
+
+    <section class="posts-section">
+        <h2>Свежие записи</h2>
+        <div class="posts-grid">
+            {% for post in posts %}
+                <article class="post-card">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.description }}</p>
+                    <a href="{% url 'post_detail' post.id %}" class="read-more">Читать подробнее &rarr;</a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

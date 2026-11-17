@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мой блог{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="{% static 'blog/images/logo.png' %}" alt="Логотип блога" class="logo-img">
+                <span class="site-title">Space & Tech Blog</span>
+            </div>
+            <nav class="nav-links">
+                <a href="{% url 'home' %}">Главная</a>
+                <a href="{% url 'about' %}">О блоге</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-container">
+        {% block content %}
+        <!-- Сюда дочерние страницы будут вставлять свой уникальный текст -->
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Практика 2: Технологии создания интернет-приложений.</p>
+    </footer>
+</body>
+</html>
