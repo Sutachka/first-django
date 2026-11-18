@@ -1,21 +1,27 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}Главная — Космический блог{% endblock %}
+{% block title %}Главная — Space & Tech Blog{% endblock %}
 
 {% block content %}
     <section class="hero">
-        <h1>Добро пожаловать в блог!</h1>
-        <p>Здесь собраны заметки о графике, космосе и разработке интернет-приложений.</p>
+        <span class="badge">🚀 Личный блог о творчестве и коде</span>
+        <h1>Истории о космосе, 3D-графике и веб-разработке</h1>
+        <p>Добро пожаловать в мой уютный цифровой уголок! Здесь я делюсь реальным опытом: от отрисовки анимации для самого большого купола планетария в мире до покорения бэкенда на Django.</p>
     </section>
 
     <section class="posts-section">
-        <h2>Свежие записи</h2>
+        <h2>Свежие публикации</h2>
         <div class="posts-grid">
             {% for post in posts %}
                 <article class="post-card">
+                    <div class="post-header-meta">
+                        <span class="post-date">📅 {{ post.date }}</span>
+                        <span class="post-time">⏱️ {{ post.read_time }}</span>
+                    </div>
                     <h3>{{ post.title }}</h3>
-                    <p>{{ post.description }}</p>
-                    <a href="{% url 'post_detail' post.id %}" class="read-more">Читать подробнее &rarr;</a>
+                    <p class="post-subtitle"><em>{{ post.subtitle }}</em></p>
+                    <p>{{ post.preview }}</p>
+                    <a href="{% url 'post_detail' post.id %}" class="read-more">Читать историю целиком &rarr;</a>
                 </article>
             {% endfor %}
         </div>

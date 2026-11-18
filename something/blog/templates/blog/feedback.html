@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Книга отзывов — Space & Tech Blog{% endblock %}
+
+{% block content %}
+    <div class="feedback-page">
+        <header class="section-header">
+            <span class="badge">💬 Обратная связь</span>
+            <h1>Книга отзывов и космических посланий</h1>
+            <p>Здесь можно поделиться впечатлениями о блоге, передать привет команде или оставить конструктивную мысль. Все сообщения бережно просматриваются автором перед публикацией!</p>
+        </header>
+
+        <!-- Список одобренных отзывов -->
+        <section class="posts-section">
+            <h2>Опубликованные отзывы ({{ feedbacks|length }})</h2>
+            {% if feedbacks %}
+                <div class="posts-grid">
+                    {% for item in feedbacks %}
+                        <div class="post-card feedback-card">
+                            <div class="feedback-header">
+                                <span class="feedback-author">❄️ {{ item.name }}</span>
+                                <span class="feedback-email-badge">({{ item.email }})</span>
+                            </div>
+                            <p class="feedback-text">{{ item.text }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <p>🪐 В этой звёздной системе пока тихо... Напишите первый отзыв ниже!</p>
+                </div>
+            {% endif %}
+        </section>
+
+        <hr class="divider">
+
+        <!-- Форма отправки отзыва -->
+        <section class="form-section">
+            <h2>Оставить своё послание</h2>
+            <div class="form-wrapper">
+                <form method="post" class="styled-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="submit-btn">
+                        ✨ Отправить отзыв модератору
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+{% endblock %}
